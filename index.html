@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Taxi Châu Thành An Giang </title>
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="images/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="images/favicon-192.png" />
+
+  <style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    color:#1f1f1f;
+    background:#fff;
+    overflow-x:hidden;
+  }
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;height:auto;display:block}
+  .container{max-width:1200px;margin:0 auto;padding:0 16px}
+
+  /* ===== NAVBAR ===== */
+  .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.navbar .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+ .logo img{max-height:60px;width:auto}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.nav-link {
+  font-weight: 600;
+  color: #1f1f1f;
+  transition: color 0.2s ease;
+  text-decoration:none;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: #ffc61a;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+  /* ===== HERO ===== */
+  .homepage-block-1{
+    position:relative;
+    background:url("images/homepage-2-bg.jpg") center center/cover no-repeat;
+    padding: 10px 0 0px;
+    margin-top:64px; /* để không bị navbar che */
+    text-align:center;
+    color:#fff;
+  }
+  .homepage-block-1::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+  }
+  .homepage-block-1 .container{position:relative;z-index:1}
+  .heading h4{color:#ffc61a;font-weight:700;margin-bottom:8px}
+  .heading h2{font-size:42px;margin:0}
+  .large-image-center{
+    position:relative;
+    max-width:900px;
+    margin:40px auto 0;
+  }
+  .large-image-center img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .large-image-center .splash{
+    position:absolute;
+    inset:0;
+    margin:auto;
+    opacity:0.9;
+    pointer-events:none;
+  }
+
+  /* ===== TAXI FORM ===== */
+  .taxi-form-full{
+    background:#ffc61a;
+    padding:40px 0;
+    text-align:center;
+  }
+ .menu-types {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.type-btn {
+  background: #fff;
+  color: #1f1f1f;
+  border: 2px solid #ffc61a;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-width: 140px;
+}
+
+.type-btn:hover {
+  background: #fff8e1;
+  transform: translateY(-2px);
+}
+
+.type-btn.active {
+  background: #ffc61a;
+  color: #1f1f1f;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+  .row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+  .col{flex:1 1 220px;max-width:260px}
+  .taxi-form-full input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+  }
+  .taxi-form-full .btn{
+    display:inline-block;
+    margin-top:16px;
+    background:#1f1f1f;
+    color:#fff;
+    padding:12px 24px;
+    border-radius:10px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+  }
+  .taxi-form-full .btn:hover{background:#333}
+
+  /* ===== SERVICES ===== */
+  .services-block{padding:60px 0}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+  }
+  .service-card{
+    text-align:center;
+    padding:24px;
+    border:1px solid #eee;
+    border-radius:16px;
+    transition:.2s;
+  }
+  .service-card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+  .service-card h5{margin:12px 0 6px;font-size:18px;color:#1f1f1f}
+  .service-card p{font-size:15px;color:#555}
+
+  /* ===== FOOTER ===== */
+  #block-footer{
+    background:#161616;
+    color:#ccc;
+    padding:40px 0;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:32px;
+  }
+  .footer-block{
+    background:#0c0c0c;
+    color:#fff;
+    text-align:center;
+    padding:12px 0;
+  }
+  .go-top{
+    display:inline-block;
+    width:40px;height:40px;
+    background:#ffc61a;
+    border-radius:50%;
+  }
+
+  /* ==== FIX Tariffs grid stacking ==== */
+/* Container giữ đủ bề ngang */
+.tariffs-block .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+/* Lưới 4 cột đều nhau */
+.tariff-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
+  gap: 24px;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* Card nổi */
+.tariff-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+
+.tariff-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border-color: #ffc61a;
+}
+
+/* Ảnh */
+.tariff-item img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+.tariff-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Tiêu đề và giá */
+.tariff-item h4 {
+  font-size: 18px;
+  margin: 8px 0;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+.tariff-item p {
+  font-size: 15px;
+  color: #555;
+  flex-grow: 1;
+}
+.tariff-item .price {
+  font-weight: 800;
+  color: #ffc61a;
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tariff-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .tariff-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Banner phía dưới giữ dạng 2 cột (nếu có) */
+.banners-grid{
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(260px, 1fr)) !important;
+  gap: 20px;
+}
+
+/* Breakpoints */
+@media (max-width: 1024px){
+  .tariff-grid{ grid-template-columns: repeat(2, minmax(240px, 1fr)) !important; }
+}
+@media (max-width: 640px){
+  .tariff-grid{ grid-template-columns: 1fr !important; }
+  .banners-grid{ grid-template-columns: 1fr !important; }
+}
+
+/* ====== NÚT LIÊN HỆ NỔI ====== */
+#button-contact-vr {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- Vòng tròn ngoài --- */
+.phone-vr-circle-fill {
+  width: 70px;
+  height: 70px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.75;
+  animation: phonePulse 1.6s infinite ease-in-out;
+}
+
+/* --- Icon trung tâm --- */
+.phone-vr-img-circle {
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: phoneRing 1.2s infinite ease-in-out;
+}
+
+.phone-vr-img-circle img {
+  width: 22px;
+  height: 22px;
+}
+
+/* --- Gói chung cho 1 nút --- */
+.button-contact {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+/* ZALO - màu xanh */
+#zalo-vr .phone-vr-circle-fill {
+  background-color: rgba(33,150,243,0.7);
+  box-shadow: 0 0 0 0 #2196f3;
+}
+
+#zalo-vr .phone-vr-img-circle {
+  background-color: #2196f3;
+}
+
+/* GỌI NGAY - màu đỏ */
+#contact-vr .phone-vr-circle-fill {
+  background-color: rgba(230,8,8,0.7);
+  box-shadow: 0 0 0 0 #e60808;
+}
+
+#contact-vr .phone-vr-img-circle {
+  background-color: #e60808;
+}
+
+/* ===== Hiệu ứng animation ===== */
+@keyframes phonePulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.3);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px transparent;
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes phoneRing {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-15deg); }
+  20% { transform: rotate(15deg); }
+  30% { transform: rotate(-15deg); }
+  40% { transform: rotate(15deg); }
+  50% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+/* ===== ICON TRÊN BANNER ===== */
+    .icon-row {
+      position: absolute;
+      top: 90%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex; align-items: center; justify-content: center;
+      gap: 18px; z-index: 2;
+    }
+    .icon-row img {
+      width: 30%; height: auto; cursor: pointer;
+      transition: transform .15s ease;
+      animation: shake-vertical .6s ease-in-out infinite;
+    }
+    .icon-row img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+    /* ===== HIỆU ỨNG ===== */
+    @keyframes shake-vertical {
+      0%,100% { transform: translateY(0); }
+      25% { transform: translateY(-6px); }
+      75% { transform: translateY(6px); }
+    }
+    @keyframes shake-phone {
+      0%,100% { transform: translateY(0); }
+      25% { transform: translateY(-8px); }
+      75% { transform: translateY(8px); }
+    }
+     /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      nav { gap: 20px; font-size: 15px; }
+      .icon-row { gap: 14px; }
+      .icon-row img { width: 100px; }
+    }
+    .call-btn {
+  display: inline-block;
+  background-color: #ffc61a;    /* nền vàng nổi bật */
+  color: #1f1f1f;              /* chữ đen dễ đọc */
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-top: 10px;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.call-btn:hover {
+  background-color: #e6b800;   /* vàng đậm hơn khi hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.call-btn:active {
+  transform: scale(0.97);
+}
+
+/* ===== CITY / COUNTY ===== */
+.city-card, .county-card {
+  position: relative;
+  background-image: var(--bg);
+  background-position: center;
+  background-size: cover;
+  border-radius: var(--radius);
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  font-size: 20px;
+}
+.county-card {
+  height: 150px;
+}
+
+/* Ảnh nền chuyển sang pseudo-element để scale */
+.city-card::before, .county-card::before{
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--bg);
+  background-size: cover; background-position: center;
+  border-radius: inherit;
+  transition: transform .6s ease, filter .6s ease;
+  z-index: 0;
+}
+
+/* Nội dung text vẫn nổi trên ảnh */
+.city-card > *, .county-card > *{ position: relative; z-index: 1; }
+
+/* Hover: ảnh phóng nhẹ + tối nhẹ, card nổi lên */
+.city-card:hover::before, .county-card:hover::before{
+  transform: scale(1.06);
+  filter: brightness(.9);
+}
+.city-card:hover, .county-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
+}.center {
+  text-align: center;
+  font-size: 26px;  
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+@media (min-width: 992px){
+  #section_1200975334 .center .text-red,
+  #section_1200975334 .center .text-red-strong{
+    font-size: 34px;      /* desktop */
+  }
+}
+.text-red {
+  color: #dc2626;
+}
+.text-red-strong {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container inner">
+    <a class="logo" href="#home"><img src="images/logo.png" alt="Logo"></a>
+
+    <div class="nav-menu">
+      <a href="#home" class="nav-link active">Trang chủ</a>
+      <a href="#services" class="nav-link">Dịch vụ</a>
+      <a href="#tariffs" class="nav-link">Đặt xe</a>
+    </div>
+
+    <div class="nav-right">
+      <a href="#" class="shop_table cart">
+        <span class="name"></span>
+        <span class="cart-contents header-cart-count count"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+  <main>
+    <section id="home" class="homepage-block-1">
+      <div class="container">
+        <div class="heading">
+          <h2 style="color: #ffc61a;">Taxi Châu Thành, Long Xuyên An Giang</h2>
+    
+        </div>
+        <div class="large-image-center">
+          <img src="images/car-big.png" alt="Car">
+        </div>
+        <div class="icon-row">
+      <img src="./images/bt-dichvu.png" alt="Dịch vụ">
+      <img src="./images/bt-lienhe.png" alt="Gọi 0372 535 656">
+      <img src="./images/bt-zalo.png" alt="Zalo">
+    </div>
+      </div>
+    </section>
+
+<!-- <section class="taxi-form-full" id="booking">
+  <div class="container">
+
+
+  <div class="menu-types">
+  <button type="button" class="type-btn active" data-type="Xe 4 Chỗ">Xe 4 Chỗ</button>
+  <button type="button" class="type-btn" data-type="Xe 7 Chỗ">Xe 7 Chỗ</button>
+</div> -->
+  <!-- <div>
+   
+    <form id="bookingForm" action="https://formspree.io/f/mzzjlzbd" method="POST">
+      
+      <input type="hidden" name="carType" id="carType" value="Xe 4 Chỗ">
+
+    
+      <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="row">
+        <div class="col"><input type="text" name="from"  placeholder="Từ..." required></div>
+        <div class="col"><input type="text" name="to"    placeholder="Đến..." required></div>
+        <div class="col"><input type="tel"  name="phone" placeholder="Số Điện Thoại" required></div>
+        <div class="col"><input type="text" name="name"  placeholder="Họ tên (thông tin người đặt)"></div>
+      </div>
+
+  
+      <input type="hidden" name="_subject" value="Đặt xe mới từ website Taxi An Giang">
+
+      <div class="submit"><button class="btn" type="submit">Đặt xe</button></div>
+      <p id="bookingMsg" style="margin-top:10px"></p>
+    </form>
+  </div> -->
+</section>
+
+
+    <section id="tariffs" class="tariffs-block">
+      <div class="container">
+        <div class="heading">
+          <h4>Về chúng tôi</h4>
+          <h2>Xe Đời Mới</h2>
+        </div>
+        <div class="tariff-grid">
+          <div class="tariff-item"><img src="images/tariff-1.png"><h4>Xe 4 chỗ</h4><p>Xe đời mới, tiêu chuẩn cho chuyến đi quanh thành phố</p><a href="tel:0939567156" class="call-btn">📞 Gọi ngay</a></div>
+          <div class="tariff-item"><img src="images/tariff-2.png"><h4>Xe 4 chỗ</h4><p>Xe thoải mái cho các chuyến đi công việc</p><a href="tel:0939567156" class="call-btn">📞 Gọi ngay</a></div>
+          <div class="tariff-item vip"><img src="images/tariff-3.png"><h4>Xe 7 chỗ</h4><p>Xe đời mới, thoải mái cho dịch vụ gia đình</p><a href="tel:0939567156" class="call-btn">📞 Gọi ngay</a></div>
+          <div class="tariff-item"><img src="images/tariff-4.png"><h4>Xe 16 chỗ</h4><p>Hoàn hảo cho các chuyến đi nhóm hoặc gia đình</p><a href="tel:0939567156" class="call-btn">📞 Gọi ngay</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="areas">
+        <div class="container">
+          <h1 class="center"><span class="text-red-strong">Taxi Châu Thành, Long Xuyên An Giang</span></h1>
+          <p class="center"><span class="text-red">Taxi Nhanh 5 Huyện</span></p>
+
+          <div class="grid-3 city-grid">
+            <div class="city-card" style="--bg:url('images/longxuyen.jpg')"><h1>Long Xuyên</h1></div>
+            <div class="city-card" style="--bg:url('images/chauthanh.jpg')"><h1>Châu Thành</h1></div>
+            <div class="city-card" style="--bg:url('images/chauphu.jpg')"><h1>Châu Phú</h1></div>
+            <div class="city-card" style="--bg:url('images/triton.jpg')"><h1>Tri Tôn</h1></div>
+            <div class="city-card" style="--bg:url('images/phuhoa.jpg')"><h1>Phú Hòa</h1></div>
+        </div>
+      </section>
+
+    <section id="services" class="services-block">
+      <div class="container">
+        <div class="heading">
+          <h4>Chào Mừng</h4>
+          <h2>Dịch Vụ Của Chúng Tôi</h2>
+        </div>
+        <div class="service-grid">
+          <div class="service-card"><img src="images/services-1.png"><h5>Đưa đón nhanh chóng</h5><p>Chúng tôi sẽ đưa bạn đến nơi cần thiết một cách nhanh chóng và thoải mái</p></div>
+          <div class="service-card"><img src="images/services-2.png"><h5>Địa điểm du lịch</h5><p>Tài xế với nhiều năm kinh nghiệm sẽ mang lại trải nghiệm du lịch địa phương</p></div>
+          <div class="service-card"><img src="images/services-3.png"><h5>Đưa đón sân bay</h5><p>Chúng tôi sẽ đưa bạn đến sân bay một cách nhanh chóng và thoải mái</p></div>
+          <div class="service-card"><img src="images/services-4.png"><h5>Vận chuyển hành lý</h5><p>Nhân viên của chúng tôi sẽ giúp bạn vận chuyển hành lý đến địa chỉ mong muốn</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ĐÃ BỎ PHẦN CLIENT -->
+
+    <section class="banners-block">
+      <div class="container">
+        <div class="banners-grid">
+          <img src="images/banner-1-4.png">
+          <img src="images/banner-2-2.png">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="block-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h2 style="color: #aaa315;">Taxi An Giang</h2><p>Chúng tôi mang đến trải nghiệm di chuyển êm ái, đúng giờ và tận tâm.</p><p>Dịch vụ taxi đáng tin cậy – đưa bạn đến nơi an toàn và thoải mái nhất.</p></div>
+        <div><h4>Khám phá</h4><ul><li><a href="#home">Trang chủ</a></li><li><a href="#services">Dịch vụ</a></li><li><a href="#tariffs">Bảng giá</a></li></ul></div>
+        <div><h4>Liên hệ</h4><p>0939567156</p></div>
+      </div>
+    </div>
+  </section>
+
+<!-- Nút Zalo và Gọi Ngay -->
+<div id="button-contact-vr">
+  <div id="zalo-vr" class="button-contact">
+    <div class="phone-vr">
+      <div class="phone-vr-circle-fill"></div>
+      <div class="phone-vr-img-circle">
+         <a href="tel:0939567156">
+          <img src="images/zalo.png" alt="Gọi ngay">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact-vr" class="button-contact">
+    <div class="phone-vr">
+      <div class="phone-vr-circle-fill"></div>
+      <div class="phone-vr-img-circle">
+        <a href="tel:0939567156">
+          <img src="images/phone.png" alt="Gọi ngay">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const links = [...document.querySelectorAll('.nav-link')];
+  const sections = links
+    .map(a => a.getAttribute('href'))
+    .filter(h => h && h.startsWith('#'))
+    .map(sel => document.querySelector(sel))
+    .filter(Boolean);
+
+  // set Active helper
+  const setActive = (el) => {
+    links.forEach(a => a.classList.remove('active'));
+    if (el) el.classList.add('active');
+  };
+
+  // click -> cuộn mượt + đổi active
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const id = link.getAttribute('href');
+      if (!id?.startsWith('#')) return;   // external link
+      e.preventDefault();
+      document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'});
+      setActive(link);
+      history.replaceState(null, '', id);
+    });
+  });
+
+  // scrollspy với IntersectionObserver (tự đổi active theo phần đang xem)
+  const map = new Map(links.map(a => [a.getAttribute('href'), a]));
+  const io = new IntersectionObserver((entries) => {
+    // chọn mục nổi bật nhất trên màn hình
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) {
+      const link = map.get('#' + visible.target.id);
+      setActive(link);
+    }
+  }, { root:null, threshold:[0.5, 0.7] }); // 50–70% trong viewport mới tính là active
+
+  sections.forEach(sec => io.observe(sec));
+
+  // active ban đầu theo hash (nếu có)
+  const current = map.get(location.hash || '#home');
+  setActive(current);
+});
+
+document.querySelectorAll('.type-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // bỏ active tất cả
+    document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+    // thêm active cho nút được chọn
+    btn.classList.add('active');
+    // đồng bộ loại xe vào input hidden
+    document.getElementById('carType').value = btn.dataset.type;
+  });
+});
+</script>
+

@@ -732,5 +732,23 @@ document.querySelectorAll('.type-btn').forEach(btn => {
     document.getElementById('carType').value = btn.dataset.type;
   });
 });
+
+   document.addEventListener('DOMContentLoaded', () => {
+      // Xử lý click icon
+      const icons = document.querySelectorAll('.icon-row img');
+      icons.forEach(img => {
+        const src = img.getAttribute('src') || '';
+        img.addEventListener('click', () => {
+          if (src.includes('bt-lienhe')) {
+            window.location.href = 'tel:0939567156';
+          } else if (src.includes('bt-zalo')) {
+           window.location.href = 'tel:0939567156';
+          } else if (src.includes('bt-dichvu')) {
+            document.querySelector('#tariffs').scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    });
 </script>
+
 
